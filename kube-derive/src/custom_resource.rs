@@ -367,6 +367,7 @@ pub(crate) fn derive(input: proc_macro2::TokenStream) -> proc_macro2::TokenStrea
             // Don't use definitions and don't include `$schema` because these are not allowed.
             let gen = #schemars::gen::SchemaSettings::openapi3()
                 .with(|s| {
+                    s.strict_inline_subschemas = true;
                     s.inline_subschemas = true;
                     s.meta_schema = None;
                 })
